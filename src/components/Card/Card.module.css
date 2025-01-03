@@ -1,17 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .video {
-    position: relative;
-    padding-bottom: 260px;
-    padding-right: 432px;
+    height: 260px;
+    width: 432px;
     border: 5px solid;
     border-radius: 15px 15px 0 0;
     overflow: hidden;
-    
 }
 
 .video img {
     width: 100%;
     height: 100%;
-    position: absolute;
     object-fit: cover;
-    z-index: -1;
 }

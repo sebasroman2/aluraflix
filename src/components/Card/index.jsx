@@ -5,7 +5,7 @@ import styles from './Card.module.css'
 import { Link } from 'react-router-dom';
 
 function Card(props) {
-    const { color, ...video } = props
+    const { color, eliminarVideo, ...video } = props
 
     const estiloBoton = {
         width: '50%',
@@ -19,14 +19,13 @@ function Card(props) {
         borderRadius: '0 0 15px 15px',
         border: `5px solid ${color}`,
         borderTop: 'none',
-        marginTop: '265px',
         '& .MuiButtonGroup-grouped:not(:last-of-type)': {
             borderColor: 'var(--fondo-negro)',
         },
     }
 
     return (
-        <div className={styles.contenedor} key={video.id}>
+        <div className={styles.container}>
             <Link to={`${video.id}`}
                 className={styles.video}
                 style={
@@ -46,6 +45,7 @@ function Card(props) {
                 <Button
                     startIcon={<DeleteForeverOutlined />}
                     sx={estiloBoton}
+                    onClick={() => eliminarVideo(video.id)}
                 >
                     Borrar
                 </Button>

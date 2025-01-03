@@ -15,20 +15,25 @@ function Player() {
             .then((data) => setVideo(...data));
     }, [parametros.id])
 
-    console.log(video);
-
     if (!video) return <NotFound />
 
     return (
         <div className={styles.container}>
-            <iframe
-                width="560"
-                height="315"
-                src={video.video} 
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-            ></iframe>
+            <div className={styles.info}>
+                <h1>{video.titulo}</h1>
+                <p>{video.descripcion}</p>
+            </div>
+            <div className={styles.video}>
+                <iframe
+                    width="100%"
+                    height="100%"
+                    src={video.video}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                ></iframe>
+            </div>
         </div>
     );
 }

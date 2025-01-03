@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { Button } from "@mui/material"
 
-function CabeceraLink({ url, focus, children }) {
+function CabeceraLink({ url, location, children }) {
     const noFocus = {
         borderColor: 'white',
         color: 'white'
@@ -18,7 +18,7 @@ function CabeceraLink({ url, focus, children }) {
                     fontSize: '20px',
                     fontWeight: 'bold',
                     lineHeight: '38px',
-                    ...(focus ? { boxShadow: 'inset 0px 0px 3px 3px rgba(0, 121, 255, 0.3)' } : noFocus)
+                    ...((location.pathname === url) ? { boxShadow: 'inset 0px 0px 3px 3px rgba(0, 121, 255, 0.3)' } : noFocus)
                 }}
             >
                 {children}
