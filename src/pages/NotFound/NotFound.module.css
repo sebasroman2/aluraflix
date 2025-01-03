@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fondo-negro);
+    user-select: none;
+}
+
+.error {
+    position: relative;
+    top: 50px;
+    width: 30vw;
+    padding: 99px;
+    pointer-events: none;
+}

@@ -1,11 +1,24 @@
+import { useEffect, useState } from "react";
+
 import Banner from "components/Banner"
 import Equipo from "components/Equipo"
 import Titulo from "components/Titulo"
 
-import data from "data/db.json"
-
 function Inicio() {
-    const { equipos, videos } = data
+    const [equipos, setEquipos] = useState([]);
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetch("https://my-json-server.typicode.com/sebasroman2/aluraflix/equipos")
+            .then((response) => response.json())
+            .then((data) => setEquipos(data))
+    }, []);
+
+    useEffect(() => {
+        fetch("https://my-json-server.typicode.com/sebasroman2/aluraflix/videos")
+            .then((response) => response.json())
+            .then((data) => setVideos(data))
+    }, []);
 
     return (
         <>
