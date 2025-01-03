@@ -1,0 +1,19 @@
+:root {
+  --fuente-roboto: "Roboto", serif;
+  --fuente-source: "Source Sans 3", serif;
+  --fondo-negro: #000000;
+  --color-letra: #F5F5F5;
+  --fondo-gris-oscuro: #262626;
+  --fondo-frontend: #6BD1FF;
+  --fondo-backend: #00C86F;
+  --fondo-innovacion: #FFBA05;
+}
+
+body {
+  margin: 0;
+  background-color: var(--fondo-gris-oscuro);
+  font-family: var(--fuente-roboto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-letra)
+}

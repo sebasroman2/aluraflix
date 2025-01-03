@@ -1,0 +1,41 @@
+.texto,
+.imagen {
+    width: 50%;
+}
+
+h1 {
+    font-size: 46px;
+    font-weight: 300;
+}
+
+h2 {
+    width: fit-content;
+    font-size: 48px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background-color: var(--fondo-frontend);
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.imagen {
+    position: relative;
+    padding-bottom: 26.25%;
+    border: 5px solid var(--fondo-frontend);
+    border-radius: 15px;
+    box-shadow: inset 0px 0px 10px 5px rgba(107, 209, 255, 0.75);
+    overflow: hidden;
+}
+
+.imagen img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}

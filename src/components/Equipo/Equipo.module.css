@@ -1,0 +1,35 @@
+.titulo {
+    width: 412px;
+    position: relative;
+    z-index: 1;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    border-radius: 10px;
+    margin: -5px 0 45px 40px;
+    padding: 10px;
+}
+
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 0 90px 40px;
+}
+
+.video {
+    position: relative;
+    padding-bottom: 260px;
+    padding-right: 432px;
+    border: 5px solid;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+
+.video img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+}
