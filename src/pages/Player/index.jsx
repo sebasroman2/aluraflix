@@ -1,19 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { GlobalContext } from 'context/GlobalContext';
 
 import NotFound from 'pages/NotFound';
 
 import styles from './Player.module.css';
 
 function Player() {
-    const [video, setVideo] = useState([]);
+    const { state } = useContext(GlobalContext);
     const parametros = useParams();
 
-    useEffect(() => {
-        fetch(`https://my-json-server.typicode.com/sebasroman2/aluraflix/videos?id=${parametros.id}`)
-            .then((response) => response.json())
-            .then((data) => setVideo(...data));
-    }, [parametros.id])
+    const video = state.listaDeVideos.find((video) => String(video.id) === parametros.id)
 
     if (!video) return <NotFound />
 

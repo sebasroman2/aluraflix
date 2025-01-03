@@ -1,0 +1,29 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.dialog {
+    position: absolute;
+    top: 24px;
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+}
+
+.dialog form button{
+    position: relative;
+    right: 40px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

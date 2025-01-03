@@ -5,7 +5,7 @@ import styles from './Card.module.css'
 import { Link } from 'react-router-dom';
 
 function Card(props) {
-    const { color, eliminarVideo, ...video } = props
+    const { color, eliminarVideo, abrirModal, ...video } = props;
 
     const estiloBoton = {
         width: '50%',
@@ -52,6 +52,7 @@ function Card(props) {
                 <Button
                     startIcon={<BorderColorOutlined />}
                     sx={estiloBoton}
+                    onClick={() => abrirModal(video)}
                 >
                     Editar
                 </Button>

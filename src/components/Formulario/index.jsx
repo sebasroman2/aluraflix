@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
+import {v4 as uuidv4} from 'uuid';
 import { Button, MenuItem, TextField } from "@mui/material";
 
 import styles from './Formulario.module.css'
@@ -45,6 +46,8 @@ const estiloInput = {
 }
 
 function Formulario({ handleSubmit, equipos }) {
+    const navigate = useNavigate();
+
     const [titulo, setTitulo] = useState('');
     const [categoria, setCategoria] = useState('');
     const [imagen, setImagen] = useState('');
@@ -117,6 +120,7 @@ function Formulario({ handleSubmit, equipos }) {
         <form onSubmit={(e) => {
             e.preventDefault();
             handleSubmit({ id: uuidv4(), titulo, categoria, imagen, video, descripcion });
+            navigate('/');
         }}>
             <div className={styles.categoria}>
                 <TextField
@@ -148,7 +152,6 @@ function Formulario({ handleSubmit, equipos }) {
                     onBlur={manejarBlur}
                     sx={estiloInput}
                 >
-                    <MenuItem value="" disabled>Seleccione una categoría</MenuItem>
                     {equipos.map((categoria) => (
                         <MenuItem key={categoria.id} value={categoria.nombre} sx={estiloInput}>
                             {categoria.nombre}

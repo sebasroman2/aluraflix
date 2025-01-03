@@ -4,7 +4,7 @@ import styles from './Equipo.module.css';
 
 function Equipo(props) {
   const { nombre, color } = props.equipo;
-  const { videos, eliminarVideo } = props;
+  const { videos, eliminarVideo, abrirModal } = props;
 
   return (
     <>
@@ -19,6 +19,7 @@ function Equipo(props) {
                   color={color}
                   key={video.id}
                   eliminarVideo={eliminarVideo}
+                  abrirModal={abrirModal}
                 />
               ))
             }

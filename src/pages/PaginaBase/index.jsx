@@ -1,16 +1,19 @@
 import { Outlet } from "react-router-dom"
 
+import GlobalContextProvider from "context/GlobalContext"
+
 import Cabecera from "components/Cabecera"
 import Pie from "components/Pie"
-import VideosProvider from "context/videos"
+import ModalZoom from "components/ModalZoom"
 
 function PaginaBase() {
     return (
         <main>
             <Cabecera />
-            <VideosProvider>
+            <GlobalContextProvider>
                 <Outlet />
-            </VideosProvider>
+                <ModalZoom />
+            </GlobalContextProvider>
             <Pie />
         </main>
     )
