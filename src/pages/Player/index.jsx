@@ -6,7 +6,7 @@ import NotFound from 'pages/NotFound';
 import styles from './Player.module.css';
 
 function Player() {
-    const [video, setVideo] = useState({});
+    const [video, setVideo] = useState([]);
     const parametros = useParams();
 
     useEffect(() => {
@@ -15,7 +15,7 @@ function Player() {
             .then((data) => setVideo(...data));
     }, [parametros.id])
 
-    console.log(video.video);
+    console.log(video);
 
     if (!video) return <NotFound />
 
@@ -26,7 +26,6 @@ function Player() {
                 height="315"
                 src={video.video} 
                 title="YouTube video player"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
             ></iframe>
