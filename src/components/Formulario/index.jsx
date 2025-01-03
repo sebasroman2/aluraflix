@@ -3,10 +3,13 @@ import { useNavigate } from "react-router-dom";
 import {v4 as uuidv4} from 'uuid';
 import { Button, MenuItem, TextField } from "@mui/material";
 
+import { useEditarModal } from "hooks/useEditarModal";
+
 import styles from './Formulario.module.css'
 
 const estiloInput = {
     flex: '1',
+    minWidth: '432px',
 
     '& .MuiOutlinedInput-root': {
         '& fieldset': {
@@ -47,12 +50,13 @@ const estiloInput = {
 
 function Formulario({ handleSubmit, equipos }) {
     const navigate = useNavigate();
+    const { videoSeleccionado} = useEditarModal();
 
-    const [titulo, setTitulo] = useState('');
-    const [categoria, setCategoria] = useState('');
-    const [imagen, setImagen] = useState('');
-    const [video, setVideo] = useState('');
-    const [descripcion, setDescripcion] = useState('');
+    const [titulo, setTitulo] = useState(videoSeleccionado?.titulo || '');
+    const [categoria, setCategoria] = useState(videoSeleccionado?.categoria || '');
+    const [imagen, setImagen] = useState(videoSeleccionado?.imagen || '');
+    const [video, setVideo] = useState(videoSeleccionado?.video || '');
+    const [descripcion, setDescripcion] = useState(videoSeleccionado?.descripcion || '');
 
     const [errors, setErrors] = useState({
         titulo: { error: false, message: '' },
@@ -109,17 +113,18 @@ function Formulario({ handleSubmit, equipos }) {
         setVideo('');
         setDescripcion('');
         setErrors({
-            titulo: {
-                titulo: false,
-                message: 'El título es obligatorio',
-            }
-        })
+            titulo: { error: false, message: "" },
+            categoria: { error: false, message: "" },
+            imagen: { error: false, message: "" },
+            video: { error: false, message: "" },
+            descripcion: { error: false, message: "" },
+        });
     }
 
     return (
         <form onSubmit={(e) => {
             e.preventDefault();
-            handleSubmit({ id: uuidv4(), titulo, categoria, imagen, video, descripcion });
+            handleSubmit({ id: videoSeleccionado?.id || uuidv4(), titulo, categoria, imagen, video, descripcion });
             navigate('/');
         }}>
             <div className={styles.categoria}>
@@ -158,8 +163,6 @@ function Formulario({ handleSubmit, equipos }) {
                         </MenuItem>
                     ))}
                 </TextField>
-            </div>
-            <div className={styles.categoria}>
                 <TextField
                     id='imagen'
                     label='Imagen'
@@ -188,8 +191,6 @@ function Formulario({ handleSubmit, equipos }) {
                     onBlur={manejarBlur}
                     sx={estiloInput}
                 />
-            </div>
-            <div className={styles.categoria}>
                 <TextField
                     id='descripcion'
                     label='Descripcion'

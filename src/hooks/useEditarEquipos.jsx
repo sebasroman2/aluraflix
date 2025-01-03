@@ -9,7 +9,9 @@ const useEditarEquipos = () => {
 
     function eliminarVideo(id) { dispatch({ type: 'ELIMINAR_VIDEO', payload: id }) }
 
-    return { agregarVideo, eliminarVideo, listaDeVideos: state.listaDeVideos };
+    function actualizarVideo(video) { dispatch({ type: 'ACTUALIZAR_VIDEO', payload: video }) }
+
+    return { agregarVideo, eliminarVideo, actualizarVideo, listaDeVideos: state.listaDeVideos };
 }
 
 export { useEditarEquipos }

@@ -19,6 +19,11 @@ const reducer = (state, action) => {
             return { ...state, listaDeVideos: [...state.listaDeVideos, action.payload] };
         case 'ELIMINAR_VIDEO':
             return { ...state, listaDeVideos: state.listaDeVideos.filter(video => video.id !== action.payload) };
+        case 'ACTUALIZAR_VIDEO':
+            return {
+                ...state,
+                listaDeVideos: state.listaDeVideos.map(video => video.id === action.payload.id ? action.payload : video)
+            }
         case 'SET_VIDEO_SELECCIONADO':
             return {
                 ...state,
