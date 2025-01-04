@@ -6,6 +6,8 @@
 h1 {
     font-size: 46px;
     font-weight: 300;
+    margin: 0;
+    padding: 0;
 }
 
 h2 {
@@ -21,6 +23,8 @@ h2 {
 p {
     font-size: 18px;
     font-weight: 300;
+    margin: 0;
+    padding: 0;
 }
 
 .imagen {
@@ -38,4 +42,14 @@ p {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+}
+
+@media (max-width: 1024px) {
+    h2 {
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 12px;
+    }
 }

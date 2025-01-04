@@ -1,16 +1,19 @@
 .container {
+    box-sizing: border-box;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--fondo-negro);
     user-select: none;
+    height: 90vh;
 }
 
 .error {
     position: relative;
     top: 50px;
-    width: 30vw;
+    height: 50vh;
     padding: 99px;
     pointer-events: none;
 }

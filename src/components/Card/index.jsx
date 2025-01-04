@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from '@mui/material';
+import { Button, ButtonGroup, useMediaQuery } from '@mui/material';
 import { BorderColorOutlined, DeleteForeverOutlined } from '@mui/icons-material';
 
 import styles from './Card.module.css'
@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 function Card(props) {
     const { color, eliminarVideo, abrirModal, ...video } = props;
+
+    const isSmallScreen = useMediaQuery('(max-width: 712px)');
 
     const estiloBoton = {
         width: '50%',
@@ -15,7 +17,7 @@ function Card(props) {
     }
 
     const estiloGrupoBotones = {
-        width: '432px',
+        width: isSmallScreen ? '280px' : '432px',
         borderRadius: '0 0 15px 15px',
         border: `5px solid ${color}`,
         borderTop: 'none',

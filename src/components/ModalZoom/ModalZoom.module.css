@@ -7,6 +7,7 @@
     background-color: rgba(3, 18, 47, 0.7);
     overflow-y: auto;
     z-index: 1000;
+    box-sizing: border-box;
 }
 
 .overlay::-webkit-scrollbar {
@@ -59,9 +60,33 @@
 
 .formulario button{
     position: relative;
-    left: 95%;
+    left: 44vw;
     background-color: transparent;
     border: none;
     color: white;
     cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .formulario button {
+        left: 42vw;
+    }
+}
+
+@media (max-width: 712px) {
+    .dialog {
+        width: 90%;
+    }
+    
+    .edicion {
+        align-items: center;
+    }
+
+    .edicion h1 {
+        font-size: 38px;
+    }
+
+    .formulario button {
+        left: 67.5vw;
+    }
 }

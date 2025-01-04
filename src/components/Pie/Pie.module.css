@@ -11,3 +11,10 @@
 .pie img {
     height: 40px;
 }
+
+@media (max-width: 712px) {
+    .pie {
+        display: none;
+    }
+
+}

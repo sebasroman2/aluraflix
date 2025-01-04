@@ -10,6 +10,8 @@ import Equipo from "components/Equipo"
 import Titulo from "components/Titulo"
 import Cargando from "components/Cargando";
 
+import styles from "./Inicio.module.css";
+
 function Inicio() {
     const { state } = useContext(GlobalContext);
     const { eliminarVideo } = useEditarEquipos();
@@ -17,7 +19,7 @@ function Inicio() {
 
     return (
         state.listaDeEquipos.length === 0 ? <Cargando /> :
-            <>
+            <div className={ styles.container }>
                 <Banner>
                     <Titulo />
                 </Banner>
@@ -30,7 +32,7 @@ function Inicio() {
                         abrirModal={abrirModal}
                     />
                 )}
-            </>
+            </div>
     )
 }
 

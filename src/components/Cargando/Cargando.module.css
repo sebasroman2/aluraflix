@@ -10,7 +10,7 @@
 .cargando {
     position: relative;
     top: 50px;
-    width: 50vw;
+    height: 80vh;
     padding: 30px;
     pointer-events: none;
 }

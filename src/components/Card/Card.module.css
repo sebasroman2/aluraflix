@@ -16,3 +16,10 @@
     height: 100%;
     object-fit: cover;
 }
+
+@media (max-width: 712px) {
+    .video {
+        height: 160px;
+        width: 280px;
+    }
+}

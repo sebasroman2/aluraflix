@@ -1,56 +1,58 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {v4 as uuidv4} from 'uuid';
-import { Button, MenuItem, TextField } from "@mui/material";
+import { Button, MenuItem, TextField, useMediaQuery } from "@mui/material";
 
 import { useEditarModal } from "hooks/useEditarModal";
 
 import styles from './Formulario.module.css'
 
-const estiloInput = {
-    flex: '1',
-    minWidth: '432px',
+function Formulario({ handleSubmit, equipos }) {
+    const isSmallScreen = useMediaQuery('(max-width: 712px)');
 
-    '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-            borderColor: 'rgba(255, 255, 255, .2)',
+    const estiloInput = {
+        flex: '1',
+        minWidth: isSmallScreen ? '280px' : '432px',
+
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'rgba(255, 255, 255, .2)',
+            },
+            '&:hover fieldset': {
+                borderColor: 'rgba(255, 255, 255, .3)',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: 'rgba(255, 255, 255, .5)',
+            },
+            '& input': {
+                color: 'rgba(255, 255, 255, 1)',
+            },
         },
-        '&:hover fieldset': {
-            borderColor: 'rgba(255, 255, 255, .3)',
+        '& .MuiInputLabel-root': {
+            color: 'rgba(255, 255, 255, .5)',
         },
-        '&.Mui-focused fieldset': {
-            borderColor: 'rgba(255, 255, 255, .5)',
-        },
-        '& input': {
+        '& .MuiInputLabel-root.Mui-focused': {
             color: 'rgba(255, 255, 255, 1)',
         },
-    },
-    '& .MuiInputLabel-root': {
-        color: 'rgba(255, 255, 255, .5)',
-    },
-    '& .MuiInputLabel-root.Mui-focused': {
-        color: 'rgba(255, 255, 255, 1)',
-    },
-    '& .MuiFormHelperText-root': {
-        fontSize: '10px',
-    },
-    '& textarea': {
-        color: 'rgba(255, 255, 255, 1)',
-    },
-    '& select': {
-        color: 'rgba(255, 255, 255, 1)',
-    },
-    '& .MuiSelect-select': {
-        color: 'rgba(255, 255, 255, 1)',
-    },
-    '& .MuiSelect-icon': {
-        color: 'rgba(255, 255, 255, 1)',
-    },
-}
-
-function Formulario({ handleSubmit, equipos }) {
+        '& .MuiFormHelperText-root': {
+            fontSize: '10px',
+        },
+        '& textarea': {
+            color: 'rgba(255, 255, 255, 1)',
+        },
+        '& select': {
+            color: 'rgba(255, 255, 255, 1)',
+        },
+        '& .MuiSelect-select': {
+            color: 'rgba(255, 255, 255, 1)',
+        },
+        '& .MuiSelect-icon': {
+            color: 'rgba(255, 255, 255, 1)',
+        },
+    }
+    
     const navigate = useNavigate();
-    const { videoSeleccionado} = useEditarModal();
+    const { videoSeleccionado } = useEditarModal();
 
     const [titulo, setTitulo] = useState(videoSeleccionado?.titulo || '');
     const [categoria, setCategoria] = useState(videoSeleccionado?.categoria || '');

@@ -1,12 +1,16 @@
 form {
     width: 100%;
+    box-sizing: border-box;
 }
 
 .categoria {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
+    box-sizing: border-box;
 }
 
 .botones {
@@ -31,4 +35,11 @@ input:-webkit-autofill:focus {
     /* Cambia el color de fondo cuando tiene foco */
     color: rgba(255, 255, 255, 1) !important;
     /* Cambia el color del texto cuando tiene foco */
+}
+
+@media (max-width: 1024px) {
+    .botones {
+        justify-content: center;
+        align-items: center;
+    }
 }
